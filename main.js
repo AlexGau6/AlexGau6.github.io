@@ -4,11 +4,13 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.127.0/examples/
 // Scene setup
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xff9966); // warm sunset background
+window.scene = scene; // expose for console debugging
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(-2.0635, 1.5, 0.95);
 camera.lookAt(-1.8, 1, 0);
 
+// Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById("bg"),
   antialias: true,
@@ -58,10 +60,17 @@ window.addEventListener("click", onClick);
 // Load your model
 const loader = new GLTFLoader();
 loader.load(
-  "model.txt", // Use "model.glb" if hosted externally with proper CORS
+  "model.txt",
   (gltf) => {
     console.log("Model loaded");
     scene.add(gltf.scene);
+
+    // Debug: list all mesh names
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        console.log("Mesh found:", child.name);
+      }
+    });
   },
   undefined,
   (error) => {
