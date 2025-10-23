@@ -3,10 +3,10 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.127.0/examples/
 
 // Scene setup
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x1a1a1a);
+scene.background = new THREE.Color(0xff9966); // warm sunset background
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(-2.0635, 1.5, .95);
+camera.position.set(-2.0635, 1.5, 0.95);
 camera.lookAt(-1.8, 1, 0);
 
 const renderer = new THREE.WebGLRenderer({
@@ -16,11 +16,14 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// Lighting
-scene.add(new THREE.HemisphereLight(0xffffff, 0x222222, 1.2));
-const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
-dirLight.position.set(5, 10, 5);
-scene.add(dirLight);
+// Sunset-style lighting
+const ambient = new THREE.AmbientLight(0xffbb88, 0.4); // soft peachy fill
+scene.add(ambient);
+
+const sunLight = new THREE.DirectionalLight(0xffcc88, 1.5); // golden sunlight
+sunLight.position.set(-5, 2, 5); // low angle like sunset
+sunLight.castShadow = true;
+scene.add(sunLight);
 
 // Raycaster for clicks
 const raycaster = new THREE.Raycaster();
@@ -43,7 +46,7 @@ function onClick(event) {
     }
     if (clickedObject.name === "poster") {
       window.location.href = "poster.html";
-    } 
+    }
     if (clickedObject.name === "trashcan") {
       window.location.href = "trashcan.html";
     }
