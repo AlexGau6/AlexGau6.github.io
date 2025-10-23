@@ -17,7 +17,7 @@ const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
 scene.add(light);
 
 const loader = new GLTFLoader();
-loader.load("model.glb", (gltf) => {
+loader.load("duck.glb", (gltf) => {
   scene.add(gltf.scene);
 }, undefined, (error) => {
   console.error("Error loading model:", error);
