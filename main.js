@@ -29,14 +29,14 @@ const dirLight = new THREE.DirectionalLight(0xffffff, 1);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
-// Controls
+// Orbit controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
-// Load sample model
+// Load sample model from CORS-friendly CDN
 const loader = new GLTFLoader();
 loader.load(
-  "https://github.com/KhronosGroup/glTF-Sample-Models/blob/master/2.0/Duck/glTF-Binary/Duck.glb?raw=true",
+  "https://rawcdn.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb",
   (gltf) => {
     console.log("Model loaded:", gltf);
     scene.add(gltf.scene);
@@ -47,7 +47,7 @@ loader.load(
   }
 );
 
-// Animate
+// Animation loop
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -55,7 +55,7 @@ function animate() {
 }
 animate();
 
-// Resize handling
+// Handle window resize
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
