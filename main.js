@@ -4,7 +4,7 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.127.0/examples/
 
 // Scene setup
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x202020); // Dark gray background
+scene.background = new THREE.Color(0x202020);
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 2, 5); // Pull back for visibility
+camera.position.set(0, 2, 5);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById("bg"),
@@ -22,32 +22,30 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // Lighting
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-scene.add(hemiLight);
-
+scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1));
 const dirLight = new THREE.DirectionalLight(0xffffff, 1);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
-// Orbit controls
+// Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
-// Load sample model from CORS-friendly CDN
+// Load your model
 const loader = new GLTFLoader();
 loader.load(
-  "https://rawcdn.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb",
+  "model.txt", // Use "model.glb" if hosted externally with correct MIME
   (gltf) => {
-    console.log("Model loaded:", gltf);
+    console.log("Your model loaded successfully!");
     scene.add(gltf.scene);
   },
   undefined,
   (error) => {
-    console.error("Error loading model:", error);
+    console.error("Error loading your model:", error);
   }
 );
 
-// Animation loop
+// Animate
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -55,7 +53,7 @@ function animate() {
 }
 animate();
 
-// Handle window resize
+// Resize handling
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
