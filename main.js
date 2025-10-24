@@ -31,6 +31,10 @@ scene.add(sunLight);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
+// Object name groups
+const posterNames = ["Wanted001", "Wanted001_1", "Wanted001_2"];
+const trashcanNames = ["Cylinder027", "Cylinder027_1"];
+
 function onClick(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -42,14 +46,11 @@ function onClick(event) {
     const clickedObject = intersects[0].object;
     console.log("Clicked:", clickedObject.name);
 
-    // Redirect based on object name
     if (clickedObject.name === "kitty") {
       window.location.href = "kitty.html";
-    }
-    if (clickedObject.name === "poster") {
+    } else if (posterNames.includes(clickedObject.name)) {
       window.location.href = "poster.html";
-    }
-    if (clickedObject.name === "trashcan") {
+    } else if (trashcanNames.includes(clickedObject.name)) {
       window.location.href = "trashcan.html";
     }
   }
