@@ -60,10 +60,10 @@ function onClick(event) {
 
 window.addEventListener("click", onClick);
 
-// Load your model from Netlify root
+// Load your model
 const loader = new GLTFLoader();
-loader.load(model.glb);
-  "model.glb", // make sure this file is in the root of your Netlify folder
+loader.load(
+  "model.txt",
   (gltf) => {
     console.log("Model loaded");
     scene.add(gltf.scene);
