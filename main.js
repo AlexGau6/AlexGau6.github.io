@@ -6,8 +6,11 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xff9966); // warm sunset background
 window.scene = scene; // expose for console debugging
 
+// Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(-2.0635, 1.5, 0.95);
+const startPosition = new THREE.Vector3(0, 5, 10); // dramatic starting angle
+const endPosition = new THREE.Vector3(-2.0635, 1.5, 0.95); // final resting spot
+camera.position.copy(startPosition);
 camera.lookAt(-1.8, 1, 0);
 
 // Renderer
@@ -31,7 +34,6 @@ scene.add(sunLight);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-// Object name groups
 const posterNames = ["Wanted001", "Wanted001_1", "Wanted001_2"];
 const trashcanNames = ["Cylinder027", "Cylinder027_1"];
 
@@ -79,9 +81,17 @@ loader.load(
   }
 );
 
-// Animation loop
+// Camera animation
+let animationProgress = 0;
 function animate() {
   requestAnimationFrame(animate);
+
+  if (animationProgress < 1) {
+    animationProgress += 0.01; // adjust speed here
+    camera.position.lerpVectors(startPosition, endPosition, animationProgress);
+    camera.lookAt(-1.8, 1, 0);
+  }
+
   renderer.render(scene, camera);
 }
 animate();
