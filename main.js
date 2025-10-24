@@ -78,8 +78,8 @@ loader.load(
       if (child.isMesh) {
         console.log("Mesh found:", child.name);
         // Optional: ensure materials use sRGB encoding
-        if (child.material) {
-          child.material.map?.encoding = THREE.sRGBEncoding;
+        if (child.material && child.material.map) {
+          child.material.map.encoding = THREE.sRGBEncoding;
         }
       }
     });
