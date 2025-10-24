@@ -21,6 +21,11 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
+// ✅ Fix color fidelity to match Blender
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+
 // Sunset-style lighting
 const ambient = new THREE.AmbientLight(0xffbb88, 0.4); // soft peachy fill
 scene.add(ambient);
@@ -72,6 +77,10 @@ loader.load(
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
         console.log("Mesh found:", child.name);
+        // Optional: ensure materials use sRGB encoding
+        if (child.material) {
+          child.material.map?.encoding = THREE.sRGBEncoding;
+        }
       }
     });
   },
@@ -87,7 +96,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   if (animationProgress < 1) {
-    animationProgress += 0.01; // adjust speed here
+    animationProgress += 0.01;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
     camera.lookAt(-1.8, 1, 0);
   }
