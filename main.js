@@ -63,7 +63,7 @@ window.addEventListener("click", onClick);
 // Load your model
 const loader = new GLTFLoader();
 loader.load(
-  "model.txt",
+  "model.glb",
   (gltf) => {
     console.log("Model loaded");
     scene.add(gltf.scene);
