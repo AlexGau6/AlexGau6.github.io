@@ -9,7 +9,7 @@ window.scene = scene; // expose for console debugging
 // Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 const startPosition = new THREE.Vector3(0, 5, 10); // dramatic starting angle
-const endPosition = new THREE.Vector3(-2.0635, 1.5, 0.95); // final resting spot
+const endPosition = new THREE.Vector3(-3.0635, 1.5, 0.95); // final resting spot
 camera.position.copy(startPosition);
 camera.lookAt(-1.8, 1, 0);
 
