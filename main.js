@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 const startPosition = new THREE.Vector3(-15, 5, 10); // dramatic starting angle
 const endPosition = new THREE.Vector3(0, 1.5, 0.95); // final resting spot
 camera.position.copy(startPosition);
-camera.lookAt(5, 1, 5);
+camera.lookAt(5, 1, 0);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
