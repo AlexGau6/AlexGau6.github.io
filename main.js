@@ -98,7 +98,7 @@ function animate() {
   if (animationProgress < 1) {
     animationProgress += 0.01;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
-    camera.lookAt(-1.8, 1, 0);
+    camera.lookAt(2, 1, 0);
   }
 
   renderer.render(scene, camera);
