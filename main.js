@@ -8,8 +8,8 @@ window.scene = scene; // expose for console debugging
 
 // Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-const startPosition = new THREE.Vector3(0, 5, 10); // dramatic starting angle
-const endPosition = new THREE.Vector3(-3.0635, 1.5, 0.95); // final resting spot
+const startPosition = new THREE.Vector3(-5, 5, 10); // dramatic starting angle
+const endPosition = new THREE.Vector3(0, 1.5, 0.95); // final resting spot
 camera.position.copy(startPosition);
 camera.lookAt(-1.8, 1, 0);
 
@@ -31,7 +31,7 @@ const ambient = new THREE.AmbientLight(0xffbb88, 0.4); // soft peachy fill
 scene.add(ambient);
 
 const sunLight = new THREE.DirectionalLight(0xffcc88, 1.5); // golden sunlight
-sunLight.position.set(-5, 2, 5); // low angle like sunset
+sunLight.position.set(-2, 2, 5); // low angle like sunset
 sunLight.castShadow = true;
 scene.add(sunLight);
 
