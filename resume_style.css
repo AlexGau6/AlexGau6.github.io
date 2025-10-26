@@ -5,6 +5,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff3e6;
   color: #333;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 a {
@@ -17,6 +18,7 @@ header {
   background-color: #ff9966;
   padding: 1.5rem;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -46,6 +48,19 @@ nav a:hover {
   color: #ffe0cc;
 }
 
+/* === Dark Mode Toggle === */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.theme-toggle input {
+  margin-right: 0.4rem;
+}
+
 /* === Main Content === */
 main {
   padding: 2rem;
@@ -53,13 +68,22 @@ main {
   margin: 0 auto;
 }
 
+/* === Section Animation === */
 .resume-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   margin-bottom: 2rem;
   background-color: #fff;
   border-left: 6px solid #ff9966;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
+}
+
+.resume-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .resume-section h2 {
@@ -290,3 +314,28 @@ footer {
   color: white;
   font-size: 0.9rem;
 }
+
+/* === Dark Mode === */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+body.dark-mode .resume-section,
+body.dark-mode .edu-card,
+body.dark-mode .job-card,
+body.dark-mode .skill-group,
+body.dark-mode .download-card {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .volunteer-table th,
+body.dark-mode .campus-table th {
+  background-color: #444
