@@ -94,7 +94,7 @@ let animationProgress = 0;
 let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
-const doorCamPosition = new THREE.Vector3(3, 2, 5); // adjust as needed
+const doorCamPosition = new THREE.Vector3(0, 1.5, 2); // adjust as needed
 const doorLookTarget = new THREE.Vector3(0, 1, 0);  // where the door is
 
 function animate() {
