@@ -9,7 +9,7 @@ window.scene = scene;
 // Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 const startPosition = new THREE.Vector3(-15, 1.5, 0.95);
-const endPosition = new THREE.Vector3(0, 1.5, 0.95);
+const endPosition = new THREE.Vector3(0, 1.5, 0);
 camera.position.copy(startPosition);
 camera.lookAt(5, 1, 0);
 
