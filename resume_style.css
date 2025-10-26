@@ -1,9 +1,64 @@
+/* === Global Styles === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff3e6;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Header === */
+header {
+  background-color: #ff9966;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: white;
+}
+
+header p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: white;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffe0cc;
+}
+
+/* === Main Content === */
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .resume-section {
+  margin-bottom: 2rem;
   background-color: #fff;
   border-left: 6px solid #ff9966;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  margin-bottom: 2rem;
   border-radius: 8px;
 }
 
@@ -13,51 +68,225 @@
   font-size: 1.6rem;
 }
 
-.resume-section h3 {
-  margin-bottom: 0.3rem;
-  font-size: 1.2rem;
-  color: #333;
+/* === Education Chart === */
+.education-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
-.resume-section p,
-.resume-section ul,
-.resume-section table {
+.edu-card {
+  flex: 1 1 45%;
+  background-color: #fffaf3;
+  border-left: 6px solid #ff9966;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.edu-card h3 {
+  margin-top: 0;
+  color: #cc5500;
+  font-size: 1.4rem;
+}
+
+.edu-card p {
+  margin: 0.5rem 0;
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
-.resume-section ul {
+/* === Employment Chart === */
+.employment-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.job-card {
+  flex: 1 1 45%;
+  background-color: #fef6f0;
+  border-left: 6px solid #cc5500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.job-card h3 {
+  margin-top: 0;
+  color: #cc5500;
+  font-size: 1.4rem;
+}
+
+.job-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.job-card ul {
   padding-left: 1.2rem;
+  margin-top: 0.5rem;
 }
 
-.resume-section table {
+.job-card ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* === Volunteer Table === */
+.volunteer-table-wrapper {
+  overflow-x: auto;
+}
+
+.volunteer-table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #fffaf3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.resume-section table th,
-.resume-section table td {
-  border: 1px solid #ddd;
-  padding: 0.5rem;
+.volunteer-table th,
+.volunteer-table td {
+  padding: 1rem;
   text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
-.resume-section table th {
+.volunteer-table th {
   background-color: #ffe0cc;
+  color: #cc5500;
+  font-size: 1.1rem;
+}
+
+.volunteer-table tr:nth-child(even) {
+  background-color: #fdf2e9;
+}
+
+.volunteer-table td {
+  font-size: 1rem;
   color: #333;
 }
 
-.download a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #ff9966;
-  color: white;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+/* === Campus Table === */
+.campus-table-wrapper {
+  overflow-x: auto;
 }
 
-.download a:hover {
+.campus-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fef6f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.campus-table th,
+.campus-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.campus-table th {
+  background-color: #ffe0cc;
+  color: #cc5500;
+  font-size: 1.1rem;
+}
+
+.campus-table tr:nth-child(even) {
+  background-color: #fffaf3;
+}
+
+.campus-table td {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* === Skills Section === */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.skill-group {
+  flex: 1 1 30%;
+  background-color: #fef6f0;
+  border-left: 6px solid #cc5500;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.skill-group h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #cc5500;
+}
+
+.skill-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tags li {
+  background-color: #ffe0cc;
+  color: #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* === Download Section === */
+.download-card {
+  background-color: #fffaf3;
+  border-left: 6px solid #ff9966;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.download-box p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #ff9966;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.download-button:hover {
   background-color: #e67c4f;
+  transform: scale(1.05);
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ff9966;
+  color: white;
+  font-size: 0.9rem;
 }
