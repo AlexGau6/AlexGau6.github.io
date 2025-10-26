@@ -94,7 +94,7 @@ let animationProgress = 0;
 let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
-const doorCamPosition = new THREE.Vector3(0, 1.5, 2); // adjust as needed
+const doorCamPosition = new THREE.Vector3(0, 1.5, -4); // adjust as needed
 const doorLookTarget = new THREE.Vector3(0, 1, 0);  // where the door is
 
 function animate() {
@@ -107,7 +107,7 @@ function animate() {
   }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
-    doorTransitionProgress += 0.01;
+    doorTransitionProgress += 0.005;
     camera.position.lerpVectors(camera.position, doorCamPosition, doorTransitionProgress);
     camera.lookAt(doorLookTarget);
   }
