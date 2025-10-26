@@ -51,15 +51,9 @@ function onClick(event) {
     const clickedObject = intersects[0].object;
     console.log("Clicked:", clickedObject.name);
 
-    if (clickedObject.name === "kitty") {
-      window.location.href = "kitty.html";
-    } else if (posterNames.includes(clickedObject.name)) {
-      window.location.href = "poster.html";
-    } else if (trashcanNames.includes(clickedObject.name)) {
-      window.location.href = "trashcan.html";
-    } else if (clickedObject.name === "door") {
+    if (clickedObject.name === "Sphere054_1") {
       doorTransitionActive = true;
-      doorTransitionProgress = 0;
+       doorTransitionProgress = 0;
     }
   }
 }
