@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 const startCamPosition = new THREE.Vector3(-15, 1.3, 0); // where the camera starts
 const targetCamPosition = new THREE.Vector3(0.6, 1.3, 0); // where it settles
 camera.position.copy(startCamPosition);
-camera.lookAt(targetCamPosition);
+camera.lookAt(.6,1.3,0);
 
 let initialTransitionProgress = 0;
 let initialTransitionActive = true;
