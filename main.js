@@ -6,10 +6,17 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xff9966);
 window.scene = scene;
 
-// Camera setup (static position)
+// Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0.6, 1.3, 0); // static starting position
-camera.lookAt(0.6, 1.3, 0);       // static look direction
+
+// Intro transition setup
+const startCamPosition = new THREE.Vector3(-15, 1.3, 0); // where the camera starts
+const targetCamPosition = new THREE.Vector3(0.6, 1.3, 0); // where it settles
+camera.position.copy(startCamPosition);
+camera.lookAt(targetCamPosition);
+
+let initialTransitionProgress = 0;
+let initialTransitionActive = true;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -51,26 +58,18 @@ function onClick(event) {
         doorTransitionActive = true;
         doorTransitionProgress = 0;
         break;
+      case "Text003":
       case "Text003_1":
         window.open("about.html", "_blank");
         break;
-      case "Text003":
-        window.open("about.html", "_blank");
-        break;
+      case "Text005_1":
       case "Text005_2":
         window.open("projects.html", "_blank");
         break;
-      case "Text005_1":
-        window.open("projects.html", "_blank");
-        break;
+      case "Text006":
       case "Text006_1":
         window.open("resume.html", "_blank");
         break;
-      case "Text006":
-        window.open("resume.html", "_blank");
-        break;
-      case "Text007_1":
-        window.open("game.html", "_blank");
       case "Text007_1":
         window.open("game.html", "_blank");
         break;
@@ -110,10 +109,19 @@ let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
 const doorCamPosition = new THREE.Vector3(0.3, 1.14, -2.1);
-const doorLookTarget = new THREE.Vector3(0.3, 0, -2.1); // adjusted to look forward
+const doorLookTarget = new THREE.Vector3(0.3, 0, -2.1);
 
 function animate() {
   requestAnimationFrame(animate);
+
+  if (initialTransitionActive && initialTransitionProgress < 1) {
+    initialTransitionProgress += 0.005;
+    camera.position.lerpVectors(startCamPosition, targetCamPosition, initialTransitionProgress);
+    camera.lookAt(targetCamPosition);
+    if (initialTransitionProgress >= 1) {
+      initialTransitionActive = false;
+    }
+  }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
     doorTransitionProgress += 0.0025;
