@@ -11,7 +11,6 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 const startPosition = new THREE.Vector3(-15, 1.5, 0.95);
 const endPosition = new THREE.Vector3(0, 1.5, 0);
 camera.position.copy(startPosition);
-camera.lookAt(5, 1, 0);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -40,6 +39,8 @@ const mouse = new THREE.Vector2();
 const posterNames = ["Wanted001", "Wanted001_1", "Wanted001_2"];
 const trashcanNames = ["Cylinder027", "Cylinder027_1"];
 
+let doorObject = null;
+
 function onClick(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -53,7 +54,7 @@ function onClick(event) {
 
     if (clickedObject.name === "Sphere054_1") {
       doorTransitionActive = true;
-       doorTransitionProgress = 0;
+      doorTransitionProgress = 0;
     }
   }
 }
@@ -71,11 +72,19 @@ loader.load(
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
         console.log("Mesh found:", child.name);
+        if (child.name === "Sphere054_1") {
+          doorObject = child;
+        }
         if (child.material && child.material.map) {
           child.material.map.encoding = THREE.sRGBEncoding;
         }
       }
     });
+
+    // ✅ Look at the door once it's loaded
+    if (doorObject) {
+      camera.lookAt(doorObject.position);
+    }
   },
   undefined,
   (error) => {
@@ -88,8 +97,8 @@ let animationProgress = 0;
 let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
-const doorCamPosition = new THREE.Vector3(0.2756, 1.15, -2.1166); // adjust as needed
-const doorLookTarget = new THREE.Vector3(0.28, 0, -2.1166);  // where the door is
+const doorCamPosition = new THREE.Vector3(0.2756, 1.15, -2.1166);
+const doorLookTarget = new THREE.Vector3(0.28, 0, -2.1166);
 
 function animate() {
   requestAnimationFrame(animate);
@@ -97,7 +106,9 @@ function animate() {
   if (animationProgress < 1) {
     animationProgress += 0.005;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
-    camera.lookAt(0, 0, 0);
+    if (!doorObject) {
+      camera.lookAt(0.25, 1.25, 0); // fallback if door not loaded yet
+    }
   }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
