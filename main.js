@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 const startPosition = new THREE.Vector3(-15, 1.5, 0.95);
 const endPosition = new THREE.Vector3(0, 1.5, 0);
 camera.position.copy(startPosition);
-camera.lookAt(0, 1, 0);
+camera.lookAt(5, 1, 0);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -97,7 +97,7 @@ function animate() {
   if (animationProgress < 1) {
     animationProgress += 0.005;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
-    camera.lookAt(0.25, 1.25, 0);
+    camera.lookAt(0, 1.25, 0);
   }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
