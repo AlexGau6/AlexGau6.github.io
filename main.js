@@ -8,8 +8,8 @@ window.scene = scene;
 
 // Camera setup (static position)
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(.6, 1.3, 0); // static starting position
-camera.lookAt(.6, 1.3, 0);         // static look direction
+camera.position.set(0.6, 1.3, 0); // static starting position
+camera.lookAt(0.6, 1.3, 0);       // static look direction
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -35,9 +35,6 @@ scene.add(sunLight);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-const posterNames = ["Wanted001", "Wanted001_1", "Wanted001_2"];
-const trashcanNames = ["Cylinder027", "Cylinder027_1"];
-
 function onClick(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -49,9 +46,36 @@ function onClick(event) {
     const clickedObject = intersects[0].object;
     console.log("Clicked:", clickedObject.name);
 
-    if (clickedObject.name === "Sphere054_1") {
-      doorTransitionActive = true;
-      doorTransitionProgress = 0;
+    switch (clickedObject.name) {
+      case "Sphere054_1":
+        doorTransitionActive = true;
+        doorTransitionProgress = 0;
+        break;
+      case "Text003_1":
+        window.open("about.html", "_blank");
+        break;
+      case "Text003":
+        window.open("about.html", "_blank");
+        break;
+      case "Text005_2":
+        window.open("projects.html", "_blank");
+        break;
+      case "Text005_1":
+        window.open("projects.html", "_blank");
+        break;
+      case "Text006_1":
+        window.open("resume.html", "_blank");
+        break;
+      case "Text006":
+        window.open("resume.html", "_blank");
+        break;
+      case "Text007_1":
+        window.open("game.html", "_blank");
+      case "Text007_1":
+        window.open("game.html", "_blank");
+        break;
+      default:
+        console.log("No action assigned for:", clickedObject.name);
     }
   }
 }
@@ -86,7 +110,7 @@ let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
 const doorCamPosition = new THREE.Vector3(0.3, 1.14, -2.1);
-const doorLookTarget = new THREE.Vector3(0.3, 0, -2.1);
+const doorLookTarget = new THREE.Vector3(0.3, 1.14, -1.5); // adjusted to look forward
 
 function animate() {
   requestAnimationFrame(animate);
