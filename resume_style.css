@@ -48,17 +48,29 @@ nav a:hover {
   color: #ffe0cc;
 }
 
-/* === Dark Mode Toggle === */
+/* === Dark Mode Toggle Button === */
 .theme-toggle {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 0.9rem;
-  color: white;
 }
 
-.theme-toggle input {
-  margin-right: 0.4rem;
+.toggle-button {
+  background-color: #ffe0cc;
+  color: #cc5500;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-button:hover {
+  background-color: #ff9966;
+  color: white;
+  transform: scale(1.05);
 }
 
 /* === Main Content === */
@@ -328,14 +340,4 @@ body.dark-mode footer {
 }
 
 body.dark-mode .resume-section,
-body.dark-mode .edu-card,
-body.dark-mode .job-card,
-body.dark-mode .skill-group,
-body.dark-mode .download-card {
-  background-color: #2a2a2a;
-  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .volunteer-table th,
-body.dark-mode .campus-table th {
-  background-color: #444
+body.dark
