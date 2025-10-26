@@ -110,7 +110,7 @@ let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
 const doorCamPosition = new THREE.Vector3(0.3, 1.14, -2.1);
-const doorLookTarget = new THREE.Vector3(0.3, 1.14, -2.1); // adjusted to look forward
+const doorLookTarget = new THREE.Vector3(0.3, 0, -2.1); // adjusted to look forward
 
 function animate() {
   requestAnimationFrame(animate);
