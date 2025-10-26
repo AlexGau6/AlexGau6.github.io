@@ -1,0 +1,48 @@
+/* === Profile Photo === */
+.profile-photo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === Fun Facts === */
+.facts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.fact-card {
+  background-color: #ffe0cc;
+  color: #333;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+/* === Now Playing Widget === */
+.now-playing .music-widget {
+  background-color: #fef6f0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 1rem;
+}
+
+.music-widget p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
