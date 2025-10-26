@@ -3,13 +3,13 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.127.0/examples/
 
 // Scene setup
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xff9966); // warm sunset background
-window.scene = scene; // expose for console debugging
+scene.background = new THREE.Color(0xff9966);
+window.scene = scene;
 
 // Camera setup
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-const startPosition = new THREE.Vector3(-15, 1.5, .95); // dramatic starting angle
-const endPosition = new THREE.Vector3(0, 1.5, 0.95); // final resting spot
+const startPosition = new THREE.Vector3(-15, 1.5, 0.95);
+const endPosition = new THREE.Vector3(0, 1.5, 0.95);
 camera.position.copy(startPosition);
 camera.lookAt(5, 1, 0);
 
@@ -20,18 +20,16 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-
-// ✅ Fix color fidelity to match Blender
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 
-// Sunset-style lighting
-const ambient = new THREE.AmbientLight(0xffbb88, 0.4); // soft peachy fill
+// Lighting
+const ambient = new THREE.AmbientLight(0xffbb88, 0.4);
 scene.add(ambient);
 
-const sunLight = new THREE.DirectionalLight(0xffcc88, 1.5); // golden sunlight
-sunLight.position.set(-2, 2, 5); // low angle like sunset
+const sunLight = new THREE.DirectionalLight(0xffcc88, 1.5);
+sunLight.position.set(-2, 2, 5);
 sunLight.castShadow = true;
 scene.add(sunLight);
 
@@ -59,13 +57,16 @@ function onClick(event) {
       window.location.href = "poster.html";
     } else if (trashcanNames.includes(clickedObject.name)) {
       window.location.href = "trashcan.html";
+    } else if (clickedObject.name === "door") {
+      doorTransitionActive = true;
+      doorTransitionProgress = 0;
     }
   }
 }
 
 window.addEventListener("click", onClick);
 
-// Load your model
+// Load model
 const loader = new GLTFLoader();
 loader.load(
   "model.glb",
@@ -73,11 +74,9 @@ loader.load(
     console.log("Model loaded");
     scene.add(gltf.scene);
 
-    // Debug: list all mesh names
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
         console.log("Mesh found:", child.name);
-        // Optional: ensure materials use sRGB encoding
         if (child.material && child.material.map) {
           child.material.map.encoding = THREE.sRGBEncoding;
         }
@@ -90,15 +89,27 @@ loader.load(
   }
 );
 
-// Camera animation
+// Camera animation variables
 let animationProgress = 0;
+let doorTransitionProgress = 0;
+let doorTransitionActive = false;
+
+const doorCamPosition = new THREE.Vector3(3, 2, 5); // adjust as needed
+const doorLookTarget = new THREE.Vector3(0, 1, 0);  // where the door is
+
 function animate() {
   requestAnimationFrame(animate);
 
   if (animationProgress < 1) {
     animationProgress += 0.005;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
-    camera.lookAt(.25, 1.25, 0);
+    camera.lookAt(0.25, 1.25, 0);
+  }
+
+  if (doorTransitionActive && doorTransitionProgress < 1) {
+    doorTransitionProgress += 0.01;
+    camera.position.lerpVectors(camera.position, doorCamPosition, doorTransitionProgress);
+    camera.lookAt(doorLookTarget);
   }
 
   renderer.render(scene, camera);
