@@ -96,7 +96,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   if (animationProgress < 1) {
-    animationProgress += 0.01;
+    animationProgress += 0.005;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
     camera.lookAt(.25, 1.25, 0);
   }
