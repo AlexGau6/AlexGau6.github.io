@@ -16,6 +16,12 @@
       <a href="about.html">About Me</a>
       <a href="game.html">Game</a>
     </nav>
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="darkModeToggle" />
+        🌙 Dark Mode
+      </label>
+    </div>
   </header>
 
   <main>
@@ -170,5 +176,28 @@
   <footer>
     <p>&copy; 2025 Alexander Gau · Built with curiosity and code</p>
   </footer>
+
+  <!-- Section Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.resume-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
 </body>
 </html>
