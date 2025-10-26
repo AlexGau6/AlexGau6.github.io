@@ -1,3 +1,113 @@
+/* === Global Styles === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff3e6;
+  color: #333;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: #cc5500;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Header === */
+header {
+  background-color: #ff9966;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: white;
+}
+
+header p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: white;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffe0cc;
+}
+
+/* === Dark Mode Toggle Button === */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.toggle-button {
+  background-color: #ffe0cc;
+  color: #cc5500;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-button:hover {
+  background-color: #ff9966;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* === Main Layout === */
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* === Section Styling === */
+.resume-section {
+  background-color: #fff;
+  border-left: 6px solid #ff9966;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.resume-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resume-section h2 {
+  margin-top: 0;
+  color: #cc5500;
+  font-size: 1.5rem;
+}
+
 /* === Profile Photo === */
 .profile-photo {
   text-align: center;
@@ -45,4 +155,42 @@
 .music-widget p {
   margin: 0.5rem 0;
   font-size: 1rem;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ff9966;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* === Dark Mode === */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: black;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .resume-section,
+body.dark-mode .music-widget,
+body.dark-mode .fact-card {
+  background-color: #2a2a2a;
+  color: black;
+}
+
+body.dark-mode .toggle-button {
+  background-color: #444;
+  color: #ffe0cc;
+}
+
+body.dark-mode .toggle-button:hover {
+  background-color: #ff9966;
+  color: white;
 }
