@@ -6,11 +6,10 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xff9966);
 window.scene = scene;
 
-// Camera setup
+// Camera setup (static position)
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-const startPosition = new THREE.Vector3(-15, 1.5, 0.95);
-const endPosition = new THREE.Vector3(0, 1.5, 0);
-camera.position.copy(startPosition);
+camera.position.set(-15, 1.5, 0.95); // static starting position
+camera.lookAt(0.25, 2.5, 0);         // static look direction
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -38,8 +37,6 @@ const mouse = new THREE.Vector2();
 
 const posterNames = ["Wanted001", "Wanted001_1", "Wanted001_2"];
 const trashcanNames = ["Cylinder027", "Cylinder027_1"];
-
-let doorObject = null;
 
 function onClick(event) {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -72,19 +69,11 @@ loader.load(
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
         console.log("Mesh found:", child.name);
-        if (child.name === "Sphere054_1") {
-          doorObject = child;
-        }
         if (child.material && child.material.map) {
           child.material.map.encoding = THREE.sRGBEncoding;
         }
       }
     });
-
-    // ✅ Look at the door once it's loaded
-    if (doorObject) {
-      camera.lookAt(doorObject.position);
-    }
   },
   undefined,
   (error) => {
@@ -92,8 +81,7 @@ loader.load(
   }
 );
 
-// Camera animation variables
-let animationProgress = 0;
+// Door transition variables
 let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
@@ -102,14 +90,6 @@ const doorLookTarget = new THREE.Vector3(0.28, 0, -2.1166);
 
 function animate() {
   requestAnimationFrame(animate);
-
-  if (animationProgress < 1) {
-    animationProgress += 0.005;
-    camera.position.lerpVectors(startPosition, endPosition, animationProgress);
-    if (!doorObject) {
-      camera.lookAt(-5, 1.25, 0); // fallback if door not loaded yet
-    }
-  }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
     doorTransitionProgress += 0.005;
