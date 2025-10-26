@@ -107,7 +107,7 @@ function animate() {
     animationProgress += 0.005;
     camera.position.lerpVectors(startPosition, endPosition, animationProgress);
     if (!doorObject) {
-      camera.lookAt(0.25, 1.25, 0); // fallback if door not loaded yet
+      camera.lookAt(-5, 1.25, 0); // fallback if door not loaded yet
     }
   }
 
