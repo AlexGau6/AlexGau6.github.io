@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Alexander Gau</title>
+  <link rel="stylesheet" href="resume_style.css" />
+</head>
+<body>
+  <header>
+    <h1>About Me</h1>
+    <p>Get to know who I am, what I value, and what drives me.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="game.html">Game</a>
+    </nav>
+    <div class="theme-toggle">
+      <button id="darkModeToggle" class="toggle-button">🌙 Toggle Dark Mode</button>
+    </div>
+  </header>
 
+  <main>
+    <!-- Profile Photo -->
+    <section class="resume-section profile-photo visible">
+      <img src="your-photo.jpg" alt="Alexander Gau" class="profile-img" />
+    </section>
+
+    <!-- Who I Am -->
+    <section class="resume-section visible">
+      <h2>👋 Who I Am</h2>
+      <p>Hi, I’m <strong>Alexander Gau</strong> — a Computer Science and Engineering student at the University of Connecticut. I’m passionate about building immersive, interactive experiences that blend code, design, and storytelling. Whether I’m debugging a Python project, animating a 3D homepage, or mentoring peers, I bring curiosity, clarity, and creativity to everything I do.</p>
+    </section>
+
+    <!-- Fun Facts -->
+    <section class="resume-section fun-facts visible">
+      <h2>🎉 Fun Facts</h2>
+      <div class="facts-grid">
+        <div class="fact-card">🏃 I run 8k races with UConn’s club team</div>
+        <div class="fact-card">🎮 I built a playable game for my portfolio</div>
+        <div class="fact-card">🧠 I love debugging and mentoring peers</div>
+        <div class="fact-card">🎥 I design cinematic camera transitions in Three.js</div>
+      </div>
+    </section>
+
+    <!-- Now Playing -->
+    <section class="resume-section now-playing visible">
+      <h2>🎵 Now Playing</h2>
+      <div class="music-widget">
+        <p><strong>Currently listening to:</strong></p>
+        <p>“[Song Title]” by [Artist Name]</p>
+        <p><em>Updated manually or via Spotify embed</em></p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="resume-section visible">
+      <h2>📫 Let’s Connect</h2>
+      <p>Want to collaborate, chat about tech, or just say hi? Reach out!</p>
+      <ul>
+        <li>Email: <a href="mailto:alexandergau07@gmail.com">alexandergau07@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/alexandergau/" target="_blank">linkedin.com/in/alexandergau</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alexander Gau · Built with curiosity and code</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.resume-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
