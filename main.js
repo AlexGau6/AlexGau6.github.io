@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerH
 const startCamPosition = new THREE.Vector3(-15, 1.3, 0); // where the camera starts
 const targetCamPosition = new THREE.Vector3(0.6, 1.3, 0); // where it settles
 camera.position.copy(startCamPosition);
-camera.lookAt(0,1.3,1);
+camera.lookAt(.6,1.3,0);
 
 let initialTransitionProgress = 0;
 let initialTransitionActive = true;
@@ -117,7 +117,7 @@ function animate() {
   if (initialTransitionActive && initialTransitionProgress < 1) {
     initialTransitionProgress += 0.005;
     camera.position.lerpVectors(startCamPosition, targetCamPosition, initialTransitionProgress);
-    camera.lookAt(targetCamPosition);
+    camera.lookAt(new THREE.Vector3(targetCamPosition.x, targetCamPosition.y, targetCamPosition.z - 1));
     if (initialTransitionProgress >= 1) {
       initialTransitionActive = false;
     }
