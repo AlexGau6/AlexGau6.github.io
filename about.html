@@ -1,11 +1,10 @@
-<link rel="stylesheet" href="about_style.css" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Alexander Gau</title>
-  <link rel="stylesheet" href="resume_style.css" />
+  <link rel="stylesheet" href="about_style.css" />
 </head>
 <body>
   <header>
@@ -24,18 +23,18 @@
 
   <main>
     <!-- Profile Photo -->
-    <section class="resume-section profile-photo visible">
+    <section class="resume-section profile-photo">
       <img src="your-photo.jpg" alt="Alexander Gau" class="profile-img" />
     </section>
 
     <!-- Who I Am -->
-    <section class="resume-section visible">
+    <section class="resume-section">
       <h2>👋 Who I Am</h2>
       <p>Hi, I’m <strong>Alexander Gau</strong> — a Computer Science and Engineering student at the University of Connecticut. I’m passionate about building immersive, interactive experiences that blend code, design, and storytelling. Whether I’m debugging a Python project, animating a 3D homepage, or mentoring peers, I bring curiosity, clarity, and creativity to everything I do.</p>
     </section>
 
     <!-- Fun Facts -->
-    <section class="resume-section fun-facts visible">
+    <section class="resume-section fun-facts">
       <h2>🎉 Fun Facts</h2>
       <div class="facts-grid">
         <div class="fact-card">🏃 I run 8k races with UConn’s club team</div>
@@ -46,17 +45,15 @@
     </section>
 
     <!-- Now Playing -->
-    <section class="resume-section now-playing visible">
+    <section class="resume-section now-playing">
       <h2>🎵 Now Playing</h2>
       <div class="music-widget">
-        <p><strong>Currently listening to:</strong></p>
-        <p>“[Song Title]” by [Artist Name]</p>
-        <p><em>Updated manually or via Spotify embed</em></p>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1yxSLGMDHlW21z4YXirZDS?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="resume-section visible">
+    <section class="resume-section">
       <h2>📫 Let’s Connect</h2>
       <p>Want to collaborate, chat about tech, or just say hi? Reach out!</p>
       <ul>
@@ -70,6 +67,7 @@
     <p>&copy; 2025 Alexander Gau · Built with curiosity and code</p>
   </footer>
 
+  <!-- Section Animation Script -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
