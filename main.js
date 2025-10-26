@@ -124,7 +124,7 @@ function animate() {
   }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
-    doorTransitionProgress += 0.0025;
+    doorTransitionProgress += 0.00125;
     camera.position.lerpVectors(camera.position, doorCamPosition, doorTransitionProgress);
     camera.lookAt(doorLookTarget);
   }
