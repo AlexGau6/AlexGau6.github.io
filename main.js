@@ -9,7 +9,7 @@ window.scene = scene;
 // Camera setup (static position)
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(1, 1.5, 0); // static starting position
-camera.lookAt(0, 1.5, 0);         // static look direction
+camera.lookAt(1, 1.5, 0);         // static look direction
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
