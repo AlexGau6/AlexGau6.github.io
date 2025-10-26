@@ -85,7 +85,7 @@ loader.load(
 let doorTransitionProgress = 0;
 let doorTransitionActive = false;
 
-const doorCamPosition = new THREE.Vector3(0.28, 1.1, -2.11);
+const doorCamPosition = new THREE.Vector3(0.28, 1.2, -2.11);
 const doorLookTarget = new THREE.Vector3(0.28, 0, -2.11);
 
 function animate() {
