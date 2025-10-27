@@ -81,6 +81,46 @@ function onClick(event) {
 
 window.addEventListener("click", onClick);
 
+window.addEventListener("touchstart", (event) => {
+  if (event.touches.length === 1) {
+    const touch = event.touches[0];
+    const x = (touch.clientX / window.innerWidth) * 2 - 1;
+    const y = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
+    const intersects = raycaster.intersectObjects(scene.children, true);
+
+    if (intersects.length > 0) {
+      const clickedObject = intersects[0].object;
+      console.log("Touched:", clickedObject.name);
+
+      switch (clickedObject.name) {
+        case "Sphere054_1":
+          doorTransitionActive = true;
+          doorTransitionProgress = 0;
+          break;
+        case "Text003":
+        case "Text003_1":
+          window.open("about.html", "_blank");
+          break;
+        case "Text005_1":
+        case "Text005_2":
+          window.open("projects.html", "_blank");
+          break;
+        case "Text006":
+        case "Text006_1":
+          window.open("resume.html", "_blank");
+          break;
+        case "Text007_1":
+          window.open("game.html", "_blank");
+          break;
+        default:
+          console.log("No action assigned for:", clickedObject.name);
+      }
+    }
+  }
+}, false);
+
 // Load model
 const loader = new GLTFLoader();
 loader.load(
