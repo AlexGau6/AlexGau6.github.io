@@ -200,7 +200,7 @@ body.dark-mode .resume-section,
 body.dark-mode .music-widget,
 body.dark-mode .fact-card {
   background-color: #2a2a2a;
-  color: black;
+  color: white;
 }
 
 body.dark-mode .toggle-button {
