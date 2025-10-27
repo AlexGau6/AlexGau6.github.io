@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Alexander Gau</title>
+  <link rel="stylesheet" href="projects_style.css" />
+</head>
+<body>
+  <header>
+    <h1>My Projects</h1>
+    <p>Explore the work I’ve built, debugged, and designed.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="resume.html">Resume</a>
+      <a href="game.html">Game</a>
+    </nav>
+    <div class="theme-toggle">
+      <button id="darkModeToggle" class="toggle-button">🌙 Toggle Dark Mode</button>
+    </div>
+  </header>
 
+  <main>
+    <section class="projects-section">
+      <h2>🧠 Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>🎮 Portfolio Game</h3>
+          <p>A playable game built with JavaScript and HTML5 canvas. Designed to showcase creativity and interactivity.</p>
+          <a href="game.html" class="project-link">Play Game →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>🌐 Personal Website</h3>
+          <p>Modular portfolio site built with HTML, CSS, and Three.js. Features cinematic camera transitions and interactive routing.</p>
+          <a href="index.html" class="project-link">Visit Homepage →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>🤖 Robotics Debugger</h3>
+          <p>Python-based troubleshooting tool for robotics coursework. Focused on clarity, formatting, and autograder compatibility.</p>
+          <a href="#" class="project-link">View Code (Coming Soon)</a>
+        </div>
+
+        <div class="project-card">
+          <h3>📊 Resume Builder</h3>
+          <p>Styled resume page with downloadable PDF, section animations, and dark mode toggle. Built for clarity and impact.</p>
+          <a href="resume.html" class="project-link">View Resume →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Thanks for visiting!</p>
+  </footer>
+
+  <!-- Section Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.projects-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
