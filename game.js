@@ -94,6 +94,7 @@ function isColliding(a, b) {
 
 // Game loop
 function update() {
+  console.log("Game loop running");
   if (!gameStarted) return;
   if (gameOver) {
     finalScore.textContent = "Your Score: " + score;
