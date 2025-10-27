@@ -44,14 +44,20 @@
     </section>
   </main>
 
-  <!-- Sound Effects -->
-  <!-- <audio id="hitSound" src="hit.mp3" preload="auto"></audio>
-  <audio id="powerupSound" src="powerup.mp3" preload="auto"></audio> -->
 
   <footer>
-    <p>Thanks for visiting</p>
+    <p>&copy; 2025 Alexander Gau · Built with curiosity and code</p>
   </footer>
 
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggleButton = document.getElementById("darkModeToggle");
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+
+  <!-- Game Logic -->
   <script src="game.js"></script>
 </body>
 </html>
