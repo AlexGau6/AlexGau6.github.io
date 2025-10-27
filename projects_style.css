@@ -182,7 +182,7 @@ body.dark-mode footer {
 body.dark-mode .projects-section,
 body.dark-mode .project-card {
   background-color: #2a2a2a;
-  color: black;
+  color: white;
 }
 
 body.dark-mode .project-link {
