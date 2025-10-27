@@ -43,7 +43,6 @@ document.addEventListener("keyup", (e) => {
 
 // Start and restart buttons
 startButton.addEventListener("click", () => {
-  console.log("Start button clicked");
   startScreen.style.display = "none";
   gameStarted = true;
   resetGame();
@@ -96,8 +95,9 @@ function isColliding(a, b) {
 // Game loop
 function update() {
   if (!gameStarted) return;
+
   if (gameOver) {
-  console.log("Game over triggered");
+    console.log("Game over triggered");
     if (gameOverScreen) {
       gameOverScreen.style.display = "flex";
       finalScore.textContent = "Your Score: " + score;
@@ -107,8 +107,6 @@ function update() {
     }
     return;
   }
-}
-
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
