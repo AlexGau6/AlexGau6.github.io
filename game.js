@@ -126,6 +126,7 @@ function update() {
         continue;
       }
       gameOver = true;
+      console.log("Game over triggered");
       return;
     }
 
