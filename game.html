@@ -21,28 +21,28 @@
     </div>
   </header>
 
-  <!-- Start Screen -->
-  <div id="startScreen" class="overlay">
-    <h2>Dodge the Blocks</h2>
-    <p>Use arrow keys or WASD to move. Avoid falling blocks. Collect power-ups. Survive as long as you can!</p>
-    <button id="startButton">Start Game</button>
-  </div>
-
-  <!-- Game Over Screen -->
-  <div id="gameOverScreen" class="overlay" style="display: none;">
-    <h2>Game Over</h2>
-    <p id="finalScore">Your Score: 0</p>
-    <button id="restartButton">Restart</button>
-  </div>
-
   <!-- Game Canvas -->
-  <main>
-    <section class="game-section">
-      <div class="game-container">
-        <canvas id="gameCanvas" width="800" height="500"></canvas>
+<main>
+  <section class="game-section">
+    <div class="game-container">
+      <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+      <!-- Start Screen -->
+      <div id="startScreen" class="overlay">
+        <h2>Dodge the Blocks</h2>
+        <p>Use arrow keys or WASD to move. Avoid falling blocks. Collect power-ups. Survive as long as you can!</p>
+        <button id="startButton">Start Game</button>
       </div>
-    </section>
-  </main>
+
+      <!-- Game Over Screen -->
+      <div id="gameOverScreen" class="overlay" style="display: none;">
+        <h2>Game Over</h2>
+        <p id="finalScore">Your Score: 0</p>
+        <button id="restartButton">Restart</button>
+      </div>
+    </div>
+  </section>
+</main>
 
   <!-- Sound Effects -->
   <!--<audio id="hitSound" src="hit.mp3" preload="auto"></audio>
