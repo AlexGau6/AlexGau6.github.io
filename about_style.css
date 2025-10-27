@@ -205,7 +205,7 @@ body.dark-mode .fact-card {
 
 body.dark-mode .toggle-button {
   background-color: #444;
-  color: #ffe0cc;
+  color: white;
 }
 
 body.dark-mode .toggle-button:hover {
