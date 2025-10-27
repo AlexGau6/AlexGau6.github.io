@@ -3,8 +3,6 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // UI elements
-//const hitSound = document.getElementById("hitSound");
-//const powerupSound = document.getElementById("powerupSound");
 const startScreen = document.getElementById("startScreen");
 const gameOverScreen = document.getElementById("gameOverScreen");
 const startButton = document.getElementById("startButton");
@@ -127,7 +125,6 @@ function update() {
         i--;
         continue;
       }
-      //hitSound.play();
       gameOver = true;
       return;
     }
@@ -148,7 +145,6 @@ function update() {
     ctx.fillRect(p.x, p.y, p.width, p.height);
 
     if (isColliding(player, p)) {
-      //powerupSound.play();
       if (p.type === "shield") {
         player.shield = true;
       } else {
