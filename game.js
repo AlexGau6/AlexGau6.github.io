@@ -43,6 +43,7 @@ document.addEventListener("keyup", (e) => {
 
 // Start and restart buttons
 startButton.addEventListener("click", () => {
+  console.log("Start button clicked");
   startScreen.style.display = "none";
   gameStarted = true;
   resetGame();
