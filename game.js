@@ -96,10 +96,18 @@ function isColliding(a, b) {
 function update() {
   if (!gameStarted) return;
   if (gameOver) {
-    finalScore.textContent = "Your Score: " + score;
-    gameOverScreen.style.display = "flex";
+  console.log("Game over triggered");
+    if (gameOverScreen) {
+      gameOverScreen.style.display = "flex";
+      finalScore.textContent = "Your Score: " + score;
+      console.log("End screen displayed");
+    } else {
+      console.error("gameOverScreen not found");
+    }
     return;
   }
+}
+
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
