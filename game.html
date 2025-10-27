@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game | Alexander Gau</title>
+  <link rel="stylesheet" href="game_style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 Dodge the Blocks</h1>
+    <p>Play the game I built to showcase creativity, logic, and fun.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+    </nav>
+    <div class="theme-toggle">
+      <button id="darkModeToggle" class="toggle-button">🌙 Toggle Dark Mode</button>
+    </div>
+  </header>
 
+  <!-- Start Screen -->
+  <div id="startScreen" class="overlay">
+    <h2>🎮 Dodge the Blocks</h2>
+    <p>Use arrow keys or WASD to move. Avoid falling blocks. Collect power-ups. Survive as long as you can!</p>
+    <button id="startButton">Start Game</button>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" class="overlay" style="display: none;">
+    <h2>💀 Game Over</h2>
+    <p id="finalScore">Your Score: 0</p>
+    <button id="restartButton">Restart</button>
+  </div>
+
+  <!-- Game Canvas -->
+  <main>
+    <section class="game-section">
+      <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="500"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sound Effects -->
+  <audio id="hitSound" src="hit.mp3" preload="auto"></audio>
+  <audio id="powerupSound" src="powerup.mp3" preload="auto"></audio>
+
+  <footer>
+    <p>Thanks for visiting</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
