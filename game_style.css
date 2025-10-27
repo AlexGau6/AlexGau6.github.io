@@ -74,10 +74,14 @@ nav a:hover {
 /* Game Canvas */
 .game-container {
   position: relative;
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+  /*position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1rem;*/
 }
 
 canvas {
@@ -93,7 +97,7 @@ canvas {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 243, 230, 0.95);
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
