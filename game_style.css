@@ -1,28 +1,29 @@
-body {
+/* General Reset */
+body, html {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff3e6;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #fffaf0;
   color: #333;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow: hidden;
 }
 
+/* Header */
 header {
-  background-color: #ff9966;
-  padding: 1.5rem;
+  padding: 1rem;
+  background-color: #ffe4c4;
   text-align: center;
-  position: relative;
+  border-bottom: 2px solid #cc5500;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  color: white;
+  margin: 0.5rem 0;
+  color: #cc5500;
 }
 
 header p {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: white;
 }
 
 nav {
@@ -30,40 +31,58 @@ nav {
 }
 
 nav a {
-  margin: 0 1rem;
-  color: white;
-  font-weight: bold;
+  margin: 0 0.5rem;
   text-decoration: none;
+  color: #cc5500;
+  font-weight: bold;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+/* Dark Mode */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
 }
 
+.dark-mode header {
+  background-color: #333;
+  border-bottom: 2px solid #999;
+}
+
+.dark-mode nav a {
+  color: #f0f0f0;
+}
+
+/* Toggle Button */
 .toggle-button {
-  background-color: #ffe0cc;
-  color: #cc5500;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #cc5500;
+  color: white;
   border: none;
-  padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.9rem;
   cursor: pointer;
 }
 
+.toggle-button:hover {
+  background-color: #a94400;
+}
+
+/* Game Canvas */
 .game-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 canvas {
   border: 2px solid #cc5500;
-  background-color: #fff;
+  background-color: #fefefe;
 }
 
 /* Overlay Screens */
@@ -91,7 +110,6 @@ canvas {
 .overlay p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  max-width: 400px;
 }
 
 .overlay button {
@@ -108,10 +126,10 @@ canvas {
   background-color: #e67c4f;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #ff9966;
-  color: white;
   font-size: 0.9rem;
+  color: #666;
 }
