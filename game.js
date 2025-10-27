@@ -113,7 +113,7 @@ function update() {
   ctx.fillStyle = player.shield ? "#00ccff" : player.color;
   ctx.fillRect(player.x, player.y, player.width, player.height);
 
-  // Update blocks
+  // Update and draw blocks
   for (let i = 0; i < blocks.length; i++) {
     const b = blocks[i];
     b.y += b.speed;
@@ -140,7 +140,7 @@ function update() {
     }
   }
 
-  // Update powerups
+  // Update and draw powerups
   for (let i = 0; i < powerups.length; i++) {
     const p = powerups[i];
     p.y += p.speed;
@@ -153,7 +153,9 @@ function update() {
         player.shield = true;
       } else {
         player.speed += 2;
-        setTimeout(() => player.speed -= 2, 5000);
+        setTimeout(() => {
+          player.speed = Math.max(5, player.speed - 2);
+        }, 5000);
       }
       powerups.splice(i, 1);
       i--;
