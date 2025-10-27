@@ -132,6 +132,7 @@ function update() {
         i--;
         continue;
       }
+      console.log("Dead");
       gameOver = true;
       return;
     }
