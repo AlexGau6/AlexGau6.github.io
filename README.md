@@ -1,0 +1,1 @@
+A website that was my "first" project for me to code. I utilized AI to figure out the process of using HTML and learned a lot in doing so. Blender was used to create the 3D space that is the "intro" of the website.
