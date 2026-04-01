@@ -155,7 +155,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   if (initialTransitionActive && initialTransitionProgress < 1) {
-    initialTransitionProgress += 0.005;
+    initialTransitionProgress += 0.01;
     camera.position.lerpVectors(startCamPosition, targetCamPosition, initialTransitionProgress);
     camera.lookAt(new THREE.Vector3(targetCamPosition.x, targetCamPosition.y, targetCamPosition.z - 1));
     if (initialTransitionProgress >= 1) {
@@ -164,7 +164,7 @@ function animate() {
   }
 
   if (doorTransitionActive && doorTransitionProgress < 1) {
-    doorTransitionProgress += 0.00125;
+    doorTransitionProgress += 0.01;
     camera.position.lerpVectors(camera.position, doorCamPosition, doorTransitionProgress);
     camera.lookAt(doorLookTarget);
   }
