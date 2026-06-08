@@ -333,13 +333,10 @@ body.dark-mode {
   color: black;
 }
 
-body.dark-mode header{
-  background-color: #333;
-  color: #f0f0f0;
-}
+body.dark-mode header,
 body.dark-mode footer {
   background-color: #333;
-  color: #f0f0f0;
+  color: white;
 }
 
 body.dark-mode .resume-section,
